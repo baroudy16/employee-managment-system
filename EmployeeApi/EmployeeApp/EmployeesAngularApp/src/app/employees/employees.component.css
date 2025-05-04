@@ -1,0 +1,36 @@
+.employee-form, .employee-list {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.search-box {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0 20px;
+}

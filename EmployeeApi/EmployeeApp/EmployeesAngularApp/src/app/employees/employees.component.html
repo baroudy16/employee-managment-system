@@ -1,0 +1,58 @@
+<mat-card class="employee-form">
+  <h2>{{ editing ? 'Edit' : 'Add' }} Employee</h2>
+  <form>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="newEmployee.firstName" name="firstName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="newEmployee.lastName" name="lastName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="newEmployee.email" name="email" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Position</mat-label>
+      <input matInput [(ngModel)]="newEmployee.position" name="position" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="saveEmployee()">
+      {{ editing ? 'Update' : 'Add' }} Employee
+    </button>
+    <button *ngIf="editing" mat-button color="warn" (click)="resetForm()">Cancel</button>
+  </form>
+</mat-card>
+
+<!-- Search Field -->
+<mat-card class="search-box">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search employees..." [(ngModel)]="searchTerm" />
+  </mat-form-field>
+</mat-card>
+
+<!-- Employee List -->
+<mat-card class="employee-list">
+  <h2>Employee List</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let emp of filteredEmployees()">
+      {{ emp.firstName }} {{ emp.lastName }} - {{ emp.email }} - {{ emp.position }}
+      <span class="spacer"></span>
+      <button mat-button color="accent" (click)="editEmployee(emp)">Edit</button>
+      <button mat-button color="warn" (click)="deleteEmployee(emp.id)">Delete</button>
+    </mat-list-item>
+  </mat-list>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button mat-button *ngFor="let page of [].constructor(totalPages()); let i = index"
+            (click)="changePage(i + 1)" [color]="currentPage === (i + 1) ? 'primary' : ''">
+      {{ i + 1 }}
+    </button>
+  </div>
+</mat-card>
