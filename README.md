@@ -77,9 +77,9 @@ EmployeeApi/
   http://localhost:4200
 
 🛠 Future Improvements
-.Authentication (login/logout)
-.Database integration with SQL Server
-.Form validations
+1. Authentication (login/logout)
+2. Database integration with SQL Server
+3. Form validations
 
 
 
